@@ -1,7 +1,7 @@
 // models
 const User = require("../models/User");
 
-class UserController {
+class AuthController {
   // register
   async register(req, res, next) {
     const { username, email, password } = req.body;
@@ -23,8 +23,9 @@ class UserController {
     const { email, password } = req.body;
     try {
       const user = await User.findOne({ email });
-      if (!user)
+      if (!user) {
         return res.status(400).json({ message: "Invalid credentials" });
+      }
       const matchPassword = await User.validatePassword(
         password,
         user.password
@@ -42,4 +43,4 @@ class UserController {
   }
 }
 
-module.exports = UserController;
+module.exports = AuthController;
