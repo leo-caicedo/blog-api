@@ -1,0 +1,28 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node src/index.js",
+    "dev": "NODE_ENV=dev nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leo-caicedo/blog-api.git"
+  },
+  "keywords": [],
+  "author": "Leonardo Caicedo <devleonardocaicedo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leo-caicedo/blog-api/issues"
+  },
+  "homepage": "https://github.com/leo-caicedo/blog-api#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.6",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.3"
+  }
+}
