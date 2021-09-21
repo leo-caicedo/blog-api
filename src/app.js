@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const multer = require("multer");
 
 // required routes
 const authRoutes = require("./users/routes/auth.routes");
@@ -14,8 +15,19 @@ const createApp = () => {
   app.use(morgan("dev"));
   app.use(express.json());
 
-  app.get("/", (req, res) => {
-    res.json({ message: "Todo bien" });
+  // multer
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "images");
+    },
+    filename: (req, file, cb) => {
+      cb(null, req.body.name);
+    },
+  });
+
+  const upload = multer({ storage: storage });
+  app.post("/api/upload", upload.single("file"), (req, res) => {
+    res.status(201).json("File has been uploaded");
   });
 
   // routes
