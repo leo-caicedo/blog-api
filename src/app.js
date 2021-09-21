@@ -4,6 +4,7 @@ const morgan = require("morgan");
 // required routes
 const authRoutes = require("./users/routes/auth.routes");
 const usersRoutes = require("./users/routes/users.routes");
+const postsRoutes = require("./posts/routes/posts.routes");
 
 const createApp = () => {
   const app = express();
@@ -19,6 +20,7 @@ const createApp = () => {
   // routes
   app.use("/api/auth", authRoutes);
   app.use("/api/users", usersRoutes);
+  app.use("/api/posts", postsRoutes);
 
   return app;
 };
