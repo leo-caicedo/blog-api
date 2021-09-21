@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const authRoutes = require("./users/routes/auth.routes");
 const usersRoutes = require("./users/routes/users.routes");
 const postsRoutes = require("./posts/routes/posts.routes");
+const categoriesRoutes = require("./posts/routes/categories.routes");
 
 const createApp = () => {
   const app = express();
@@ -21,6 +22,7 @@ const createApp = () => {
   app.use("/api/auth", authRoutes);
   app.use("/api/users", usersRoutes);
   app.use("/api/posts", postsRoutes);
+  app.use("/api/categories", categoriesRoutes);
 
   return app;
 };
